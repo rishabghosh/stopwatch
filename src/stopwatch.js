@@ -1,28 +1,28 @@
-let displayCs = 0;
-let displaySec = 0;
-let displayMin = 0;
-let displayHours = 0;
+let centiSeconds = 0;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
 
 
 setInterval( function(){
 
-  displayCs ++;
-  if(displayCs >= 99){
-    displayCs = 0;
+  centiSeconds ++;
+  if(centiSeconds >= 99){
+    centiSeconds = 0;
   }
 
 }, 9 );
 
 
 setInterval( function(){
-  displaySec ++;
+  seconds ++;
 
-  if(displaySec >=60){
-    displayMin ++;
-    displaySec = 0;
-    if(displayMin >= 59){
-      displayHours ++;
-      displayMin = 0;
+  if(seconds >=60){
+    minutes ++;
+    seconds = 0;
+    if(minutes >= 59){
+      hours ++;
+      minutes = 0;
     }
   }
 
@@ -32,7 +32,7 @@ setInterval( function(){
 setInterval( function(){
 
   console.clear();
-  console.log('',displayHours,':', displayMin,':',displaySec + "." + displayCs);
+  console.log('',hours,':', minutes,':',seconds + "." + centiSeconds);
 
 }, 50);
 
