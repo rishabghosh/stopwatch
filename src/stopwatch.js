@@ -3,25 +3,24 @@ let seconds = 0;
 let minutes = 0;
 let hours = 0;
 
+setInterval(function () {
 
-setInterval( function(){
-
-  centiSeconds ++;
-  if(centiSeconds >= 99){
+  centiSeconds++;
+  if (centiSeconds >= 99) {
     centiSeconds = 0;
   }
 
-}, 9 );
+}, 9);
 
 
-setInterval( function(){
-  seconds ++;
+setInterval(function () {
+  seconds++;
 
-  if(seconds >=60){
-    minutes ++;
+  if (seconds >= 60) {
+    minutes++;
     seconds = 0;
-    if(minutes >= 59){
-      hours ++;
+    if (minutes >= 59) {
+      hours++;
       minutes = 0;
     }
   }
@@ -29,12 +28,14 @@ setInterval( function(){
 }, 997);
 
 
-setInterval( function(){
+const main = function () {
+  setInterval(function () {
+    let element = document.getElementById("txt");
+    element.innerHTML = hours + ":" + minutes + ":" + seconds + "." + centiSeconds;
+  }, 50);
+};
 
-  console.clear();
-  console.log('',hours,':', minutes,':',seconds + "." + centiSeconds);
 
-}, 50);
 
 
 
