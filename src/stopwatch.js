@@ -2,11 +2,12 @@ let updateCentiSec;
 let updateTime;
 let printStopwatch;
 
-const start = function (status) {
-  let centiSeconds = 0;
-  let seconds = 0;
-  let minutes = 0;
-  let hours = 0;
+let centiSeconds = 0;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+
+const start = function () {
 
   updateCentiSec = setInterval(function () {
     centiSeconds = centiSeconds + 1;
@@ -29,25 +30,39 @@ const start = function (status) {
   printStopwatch = setInterval(function () {
 
     let element = document.getElementById("txt");
-    element.innerHTML = hours + " : " + minutes +
-      " : " + seconds + "." + centiSeconds;
-
-    if (status === true) {
-      clearInterval(printStopwatch);
-      clearInterval(updateTime);
-      clearInterval(updateCentiSec);
-      console.log("cleared interval");
-    }
+    element.innerHTML = hours + " : " + minutes + " : " + seconds + "." + centiSeconds;
   }, 50);
+};
+
+const pause = function(){
+  clearInterval(updateCentiSec);
+  clearInterval(updateTime);
+  clearInterval(printStopwatch);
+};
+
+let hasStarted = false;
+
+const startPause = function(){
+  const startButton = document.getElementById("startBtn");
+  if(hasStarted){
+    pause();
+    hasStarted = false;
+    startButton.value = "Resume";
+    return;
+  }
+  start();
+  startButton.value = "Pause";
+  hasStarted = true;
 };
 
 const showClock = function () {
   let element = document.getElementById("txt");
-  console.log("inside showClock");
   element.innerHTML = "0 : 0 : 0.00";
+  centiSeconds=seconds=minutes=hours=0;
   clearInterval(updateCentiSec);
   clearInterval(updateTime);
   clearInterval(printStopwatch);
+  document.getElementById("startBtn").value = "Start";
 };
 
 
