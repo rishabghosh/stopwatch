@@ -7,9 +7,10 @@
 	<script src="/src/stopwatch.js"></script>
 </head>
 
-<body style="background-color: #303030" onload="main()">
-	<div id="txt"></div>
-
+<body style="background-color: #303030" onload="showClock()">
+	<div id="txt" style="font-size: 200px; color: whitesmoke"></div>
+	<input type="button" value="Start" onclick="start()">
+	<input type="button" value="Stop" onclick="showClock()">
 </body>
 
 </html>
