@@ -45,7 +45,7 @@ let hasStarted = false;
 const startPause = function(){
   const startButton = document.getElementById("startBtn");
   if(hasStarted){
-    pause();
+    pause(); 
     hasStarted = false;
     startButton.value = "Resume";
     return;
